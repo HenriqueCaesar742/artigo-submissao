@@ -1,2 +1,2 @@
-# parcial_banco
+# recebimento_artigos
 Plataforma para submissão de Artigos

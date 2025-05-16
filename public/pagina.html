@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Submissão de Artigo</title>
+</head>
+<body>
+  <h1>Enviar Artigo</h1>
+  <form action="/enviar" method="post" enctype="multipart/form-data">
+    <label>Nome:</label><br>
+    <input type="text" name="nome" required><br><br>
+
+    <label>E-mail:</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label>Título do Artigo:</label><br>
+    <input type="text" name="titulo" required><br><br>
+
+    <label>Categoria:
+      <select name="categoria" required>
+        <option value="Tecnologia">Tecnologia</option>
+        <option value="Educação">Educação</option>
+        <option value="Saúde">Saúde</option>
+      </select>
+    </label><br>
+    
+    <label>Upload do Artigo (PDF):</label><br>
+    <input type="file" name="artigo" accept=".pdf" required><br><br>
+
+    <label>Upload do Termo de Cessão (DOC):</label><br>
+    <input type="file" name="termo" accept=".doc" required><br><br>
+
+    <button type="submit">Enviar</button>
+  </form>
+</body>
+</html>

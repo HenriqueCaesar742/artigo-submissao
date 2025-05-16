@@ -1,25 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Submissão de Artigo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Inicial</title>
 </head>
 <body>
-  <h1>Submissão de Artigo</h1>
-  <form action="/enviar" method="POST" enctype="multipart/form-data">
-    <label>Nome do Autor: <input type="text" name="nome" required></label><br>
-    <label>Email: <input type="email" name="email" required></label><br>
-    <label>Título do Artigo: <input type="text" name="titulo" required></label><br>
-    <label>Categoria:
-      <select name="categoria" required>
-        <option value="Tecnologia">Tecnologia</option>
-        <option value="Educação">Educação</option>
-        <option value="Saúde">Saúde</option>
-      </select>
-    </label><br>
-    <label>Artigo (PDF): <input type="file" name="artigo" accept=".pdf" required></label><br>
-    <label>Termo de Cessão (.doc): <input type="file" name="termo" accept=".doc" required></label><br><br>
-    <button type="submit">Enviar</button>
-  </form>
+  <h1>Bem-vindo à página inicial</h1>
+  <p><a href="/pagina.html">Cadastro de Artigo</a></p>
 </body>
 </html>

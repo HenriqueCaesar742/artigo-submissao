@@ -3,32 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <title>Submissão de Artigo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f0fa;
+      color: #4a148c;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(74, 20, 140, 0.2);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #6a1b9a;
+    }
+
+    label {
+      font-weight: bold;
+      color: #4a148c;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="file"],
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #6a1b9a;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #4a148c;
+    }
+  </style>
 </head>
 <body>
-  <h1>Enviar Artigo</h1>
   <form action="/enviar" method="post" enctype="multipart/form-data">
+    <h1>Enviar Artigo</h1>
+    
     <label>Nome:</label><br>
-    <input type="text" name="nome" required><br><br>
+    <input type="text" name="nome" required><br>
 
     <label>E-mail:</label><br>
-    <input type="email" name="email" required><br><br>
+    <input type="email" name="email" required><br>
 
     <label>Título do Artigo:</label><br>
-    <input type="text" name="titulo" required><br><br>
+    <input type="text" name="titulo" required><br>
 
-    <label>Categoria:
-      <select name="categoria" required>
-        <option value="Tecnologia">Tecnologia</option>
-        <option value="Educação">Educação</option>
-        <option value="Saúde">Saúde</option>
-      </select>
-    </label><br>
-    
+    <label>Categoria:</label><br>
+    <select name="categoria" required>
+      <option value="Tecnologia">Tecnologia</option>
+      <option value="Educação">Educação</option>
+      <option value="Saúde">Saúde</option>
+    </select><br>
+
     <label>Upload do Artigo (PDF):</label><br>
-    <input type="file" name="artigo" accept=".pdf" required><br><br>
+    <input type="file" name="artigo" accept=".pdf" required><br>
 
     <label>Upload do Termo de Cessão (DOC):</label><br>
-    <input type="file" name="termo" accept=".doc" required><br><br>
+    <input type="file" name="termo" accept=".doc" required><br>
 
     <button type="submit">Enviar</button>
   </form>

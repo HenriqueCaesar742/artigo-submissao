@@ -97,53 +97,128 @@ app.get('/documentos', (req, res) => {
 
     // Gerar HTML com a lista de documentos
   let html = `
-  <html>
-  <head>
-    <title>Documentos Enviados</title>
-    <style>
-      table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-      th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-      th { background-color: #f2f2f2; }
-      form { display: inline; }
-      .btn { display: inline-block; padding: 10px 15px; background-color: gray; color: white; text-decoration: none; border-radius: 5px; margin-top: 20px; }
-    </style>
-  </head>
-  <body>
-    <h1>Documentos Enviados</h1>
-    <a class="btn" href="/">Voltar à Página Inicial</a>
-    <table>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Documentos Enviados</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f0fa;
+      color: #4a148c;
+    }
 
-          <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Título</th>
-            <th>Categoria</th>
-            <th>Artigo</th>
-            <th>Termo</th>
-            <th>Ação</th>
-          </tr>`;
+    h1 {
+      text-align: center;
+      color: #6a1b9a;
+    }
 
-    results.forEach(doc => {
-      html += `
-        <tr>
-          <td>${doc.id}</td>
-          <td>${doc.nome}</td>
-          <td>${doc.email}</td>
-          <td>${doc.titulo}</td>
-          <td>${doc.categoria}</td>
-          <td><a href="/uploads/${doc.artigo_path}" target="_blank">Ver Artigo</a></td>
-          <td><a href="/uploads/${doc.termo_path}" target="_blank">Ver Termo</a></td>
-          <td>
-            <form action="/deletar/${doc.id}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este documento?');">
-              <button type="submit">Excluir</button>
-            </form>
-          </td>
-        </tr>`;
-    });
+    .btn {
+      display: inline-block;
+      padding: 10px 15px;
+      background-color: gray;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin: 20px 0;
+    }
 
-    html += `</table></body></html>`;
-    res.send(html);
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(74, 20, 140, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #6a1b9a;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    button {
+      background-color: #6a1b9a;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #4a148c;
+    }
+
+    form {
+      display: inline;
+    }
+  </style>
+</head>
+<body>
+  <a class="btn" href="/">Voltar à Página Inicial</a>
+  <h1>Documentos Enviados</h1>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Título</th>
+      <th>Categoria</th>
+      <th>Artigo</th>
+      <th>Termo</th>
+      <th>Ação</th>
+    </tr>`;
+
+results.forEach(doc => {
+  html += `
+    <tr>
+      <td>${doc.id}</td>
+      <td>${doc.nome}</td>
+      <td>${doc.email}</td>
+      <td>${doc.titulo}</td>
+      <td>${doc.categoria}</td>
+      <td><a href="/uploads/${doc.artigo_path}" target="_blank">Ver Artigo</a></td>
+      <td><a href="/uploads/${doc.termo_path}" target="_blank">Ver Termo</a></td>
+      <td>
+        <form action="/deletar/${doc.id}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este documento?');">
+          <button type="submit">Excluir</button>
+        </form>
+      </td>
+    </tr>`;
+});
+
+html += `
+  </table>
+</body>
+</html>`;
+
+res.send(html);
   });
 });
 

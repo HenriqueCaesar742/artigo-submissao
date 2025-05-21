@@ -35,10 +35,7 @@ db.connect((err) => {
 // Servir arquivos estáticos da pasta public
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// Middleware para arquivos estáticos e formulários
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Rota de envio do formulário
 app.post('/enviar', upload.fields([
@@ -63,22 +60,56 @@ app.post('/enviar', upload.fields([
       console.error(err);
       return res.status(500).send('Erro ao salvar os dados.');
     }
-    res.send(`
-  <html>
-    <head>
-      <title>Sucesso</title>
-      <style>
-        body { font-family: sans-serif; padding: 30px; }
-        .btn { display: inline-block; padding: 10px 15px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-top: 20px; }
-      </style>
-    </head>
-    <body>
-      <h1>Artigo enviado com sucesso!</h1>
-      <a class="btn" href="/">Voltar à Página Inicial</a>
-    </body>
-  </html>
-`);
+ res.send(`
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Artigo Enviado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f0fa;
+      color: #4a148c;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
 
+    h1 {
+      color: #6a1b9a;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: #6a1b9a;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #4a148c;
+    }
+  </style>
+</head>
+<body>
+  <h1>Artigo enviado com sucesso!</h1>
+  <a class="btn" href="/">Voltar à Página Inicial</a>
+</body>
+</html>
+`);
   });
 });
 

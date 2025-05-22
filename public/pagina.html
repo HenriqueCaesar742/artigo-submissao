@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Submissão de Artigo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="pagina.css">
+</head>
+<body>
+  
+  <form action="/enviar" method="post" enctype="multipart/form-data">
+    <a href="/" class="link"><i class="fa-solid fa-arrow-left"></i></a>
+    <h1>Enviar Artigo</h1>
+    
+    <label>Nome:</label><br>
+    <input type="text" name="nome" required><br>
+
+    <label>E-mail:</label><br>
+    <input type="email" name="email" required><br>
+
+    <label>Título do Artigo:</label><br>
+    <input type="text" name="titulo" required><br>
+
+    <label>Categoria:</label><br>
+    <select name="categoria" required>
+      <option value="Tecnologia">Tecnologia</option>
+      <option value="Educação">Educação</option>
+      <option value="Saúde">Saúde</option>
+    </select><br>
+
+    <label>Upload do Artigo (PDF):</label><br>
+    <input type="file" name="artigo" accept=".pdf" required><br>
+
+    <label>Upload do Termo de Cessão (DOC):</label><br>
+    <input type="file" name="termo" accept=".doc" required><br>
+
+    <button type="submit">Enviar</button>
+  </form>
+</body>
+</html>

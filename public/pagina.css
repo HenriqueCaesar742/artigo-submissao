@@ -3,6 +3,7 @@ body {
     background-image: url(imagem/pexels-codioful-7130475.jpg);
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     color: #ffffff;
     margin: 0;
     padding: 0;
@@ -57,7 +58,7 @@ button {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    margin-top: 25px;
+    margin-top: 5px;
 }
 
 button:hover {
